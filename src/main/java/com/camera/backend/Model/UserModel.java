@@ -34,6 +34,8 @@ public class UserModel {
         return User.builder()
                 .id(id)
                 .userName(userName)
+                .password(password)
+                .userDetails(userDetails.toPojo())
                 .build();
     }
 
