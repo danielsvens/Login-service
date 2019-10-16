@@ -18,6 +18,7 @@ import javax.persistence.*;
 public class UserDetailModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
 
@@ -33,8 +34,7 @@ public class UserDetailModel {
     @Column(name = "role")
     private Role role;
 
-    @MapsId
-    @OneToOne
+    @OneToOne(mappedBy = "userDetails")
     private UserModel user;
 
     public UserDetail toPojo() {

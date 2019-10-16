@@ -27,7 +27,8 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_details_id", referencedColumnName = "id")
     private UserDetailModel userDetails;
 
     public User toPojo() {
