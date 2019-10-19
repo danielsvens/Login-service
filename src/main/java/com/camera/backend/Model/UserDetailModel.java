@@ -29,7 +29,7 @@ public class UserDetailModel {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @Email(message = "Invalid Email Address")
     private String email;
 
