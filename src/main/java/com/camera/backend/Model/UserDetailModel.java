@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Data
 @Builder
@@ -29,6 +30,7 @@ public class UserDetailModel {
     private String lastName;
 
     @Column(name = "email")
+    @Email(message = "Invalid Email Address")
     private String email;
 
     @Column(name = "role")

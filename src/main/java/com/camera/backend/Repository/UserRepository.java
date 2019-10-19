@@ -12,4 +12,6 @@ public interface UserRepository extends JpaRepository<UserModel, Long>,
         JpaSpecificationExecutor<UserModel> {
 
     Optional<UserModel> findById(long id);
+
+    Optional<UserModel> findByUserName(String username);
 }
