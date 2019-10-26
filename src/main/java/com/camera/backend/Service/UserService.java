@@ -9,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
 public class UserService {
@@ -34,11 +33,8 @@ public class UserService {
 
     public boolean loginUser(Login loginRequest) {
         Optional<UserModel> userDetails = userRepository.findByUserName(loginRequest.getUserName());
-        AtomicBoolean matchPassword = new AtomicBoolean(false);
 
-        userDetails.ifPresent(fetchedUser -> matchPassword.set(
-                bCryptPasswordEncoder.matches(loginRequest.getPassword(), fetchedUser.getPassword())));
-
-        return matchPassword.get();
+        return userDetails.filter(userModel ->
+                bCryptPasswordEncoder.matches(loginRequest.getPassword(), userModel.getPassword())).isPresent();
     }
 }

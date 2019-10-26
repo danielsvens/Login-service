@@ -50,7 +50,7 @@ public class CameraApiV1Controller implements CameraApiV1 {
         final UserModel userModel = userService.findUser(id)
                 .orElseThrow(() -> new UserNotFoundException("Could not find user with id: " + id));
 
-        return new ResponseEntity<>(userModel.toPojo(), HttpStatus.OK);
+        return new ResponseEntity<>(userModel.toFilteredPojo(), HttpStatus.OK);
     }
 
     @Override

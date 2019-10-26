@@ -40,6 +40,13 @@ public class UserModel {
                 .build();
     }
 
+    public User toFilteredPojo() {
+        return User.builder()
+                .userName(userName)
+                .userDetails(userDetails.toPojo())
+                .build();
+    }
+
     public static UserModel toModel(User user) {
         return UserModel.builder()
                 .userName(user.getUserName())

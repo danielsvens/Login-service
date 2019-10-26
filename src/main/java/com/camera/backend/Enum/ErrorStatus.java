@@ -4,9 +4,10 @@ import lombok.Getter;
 
 @Getter
 public enum ErrorStatus {
+    UNKNOWN_REASON(0, "Unknown error"),
     RESOURCE_NOT_FOUND(1, "Resource not found"),
     EMAIL_VALIDATION_FAILED(2, "Invalid email"),
-    UNKNOWN_REASON(0, "Unknown error")
+    UNIQUE_CONSTRAINT_VIOLATION(3, "Field already exists"),
     ;
 
     private final int errorCode;

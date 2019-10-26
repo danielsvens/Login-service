@@ -17,7 +17,7 @@ public class UserNotFoundAdvice {
     public ResponseEntity<ErrorRepresentation> handle(UserNotFoundException e) {
         ErrorRepresentation error = ErrorRepresentation.builder()
                 .errorStatus(ErrorStatus.RESOURCE_NOT_FOUND)
-                .message(e.getMessage())
+                .message(ErrorStatus.RESOURCE_NOT_FOUND.getReason())
                 .build();
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
