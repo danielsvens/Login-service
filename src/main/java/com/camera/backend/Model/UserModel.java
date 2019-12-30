@@ -33,15 +33,6 @@ public class UserModel {
 
     public User toPojo() {
         return User.builder()
-                .id(id)
-                .userName(userName)
-                .password(password)
-                .userDetails(userDetails.toPojo())
-                .build();
-    }
-
-    public User toFilteredPojo() {
-        return User.builder()
                 .userName(userName)
                 .userDetails(userDetails.toPojo())
                 .build();

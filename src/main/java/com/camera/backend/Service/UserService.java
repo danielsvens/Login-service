@@ -32,9 +32,9 @@ public class UserService {
     }
 
     public boolean loginUser(Login loginRequest) {
-        Optional<UserModel> userDetails = userRepository.findByUserName(loginRequest.getUserName());
+        Optional<UserModel> user = userRepository.findByUserName(loginRequest.getUserName());
 
-        return userDetails.filter(userModel ->
+        return user.filter(userModel ->
                 bCryptPasswordEncoder.matches(loginRequest.getPassword(), userModel.getPassword())).isPresent();
     }
 }

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -15,8 +16,10 @@ import java.io.Serializable;
 public class Login implements Serializable {
 
     @JsonProperty("userName")
+    @NotNull
     private String userName;
 
     @JsonProperty("password")
+    @NotNull
     private String password;
 }

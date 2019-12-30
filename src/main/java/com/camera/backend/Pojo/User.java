@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
@@ -18,12 +19,15 @@ public class User implements Serializable {
     @JsonIgnore
     private Long id;
 
+    @NotNull
     @JsonProperty("userName")
     private String userName;
 
+    @NotNull
     @JsonProperty("password")
     private String password;
 
+    @NotNull
     @JsonProperty("userDetails")
     private UserDetail userDetails;
 }

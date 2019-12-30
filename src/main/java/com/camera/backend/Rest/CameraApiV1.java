@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@RequestMapping("/v1/cameraApp")
+@RequestMapping("/v1/service")
 public interface CameraApiV1 {
 
     @PostMapping(value = "/register", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE},

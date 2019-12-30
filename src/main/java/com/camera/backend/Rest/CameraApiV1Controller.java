@@ -40,22 +40,20 @@ public class CameraApiV1Controller implements CameraApiV1 {
                         .message("User created.")
                         .build();
 
-        return new ResponseEntity<>(createdResponse, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(createdResponse, HttpStatus.CREATED);
     }
 
     @Override
     public ResponseEntity<User> getUser(long id) {
-
         log.info("Getting user by id: {}", id);
         final UserModel userModel = userService.findUser(id)
                 .orElseThrow(() -> new UserNotFoundException("Could not find user with id: " + id));
 
-        return new ResponseEntity<>(userModel.toFilteredPojo(), HttpStatus.OK);
+        return new ResponseEntity<>(userModel.toPojo(), HttpStatus.OK);
     }
 
     @Override
     public ResponseEntity<LoginResponse> login(@Valid Login loginRequest) {
-
         if (userService.loginUser(loginRequest)) {
             return new ResponseEntity<>(new LoginResponse(LoginStatus.SUCCESS), HttpStatus.OK);
         }

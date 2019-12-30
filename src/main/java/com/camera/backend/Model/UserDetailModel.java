@@ -39,7 +39,7 @@ public class UserDetailModel {
     @OneToOne(mappedBy = "userDetails")
     private UserModel user;
 
-    public UserDetail toPojo() {
+    UserDetail toPojo() {
         return UserDetail.builder()
                 .firstName(firstName)
                 .lastName(lastName)
@@ -48,7 +48,7 @@ public class UserDetailModel {
                 .build();
     }
 
-    public static UserDetailModel toModel(UserDetail userDetail) {
+    static UserDetailModel toModel(UserDetail userDetail) {
         return UserDetailModel.builder()
                 .firstName(userDetail.getFirstName())
                 .lastName(userDetail.getLastName())
