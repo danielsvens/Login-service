@@ -1,5 +1,5 @@
-# Backend-api-flutter-app
-Backend api for flutter app
+# Login Service
+Generic backend login service
 
 Java 11, Spring boot with postgeSQL database
 
